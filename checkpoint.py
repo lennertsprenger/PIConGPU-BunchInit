@@ -73,6 +73,7 @@ class openpmdcopy:
 
             self.__copy_mesh_record_component(input_mesh_record_component,
                                               output_mesh_record_component)
+            self.write_series.flush()
 
 
     def __copy_mesh_record_component(self,
@@ -92,6 +93,9 @@ class openpmdcopy:
         self.read_series.flush()
 
         output_mesh_record_component.store_chunk(data)
+        self.write_series.flush()
+        
+        del data
 
 
 
@@ -148,6 +152,7 @@ class openpmdcopy:
 
             self.__copy_record_component(input_record_component,
                                          output_record_component)
+            self.write_series.flush()
 
 
     def __copy_record_component(self,
@@ -174,6 +179,7 @@ class openpmdcopy:
         self.read_series.flush()
         
         output_record_component.store_chunk(data)
+        self.write_series.flush()
 
 
 
