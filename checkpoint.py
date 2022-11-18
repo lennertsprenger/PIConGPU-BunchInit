@@ -16,7 +16,7 @@ class openpmdcopy:
     def close(self):
         del self.read_series
         del self.write_series
-        print('data written and files closed')
+        print('\ndata written and files closed')
         
     def copy(self, exclude_mesh=[]):
         input_particle_container = self.input_iteration.particles
